@@ -17,12 +17,18 @@ Run:
 """
 
 import json
+import os
 import streamlit as st
 from anthropic import Anthropic
 
+# Works both locally (via `export ANTHROPIC_API_KEY=...` in your terminal)
+# and on Streamlit Cloud (via the Secrets box in app settings) — whichever
+# one actually has the key set gets used.
+if "ANTHROPIC_API_KEY" in st.secrets:
+    os.environ["ANTHROPIC_API_KEY"] = st.secrets["ANTHROPIC_API_KEY"]
+
 client = Anthropic()  # reads ANTHROPIC_API_KEY from env
 MODEL = "claude-sonnet-4-5"
-
 
 # ---------------------------------------------------------------------------
 # 1. MOCK DATA
