@@ -28,7 +28,7 @@ if "ANTHROPIC_API_KEY" in st.secrets:
     os.environ["ANTHROPIC_API_KEY"] = st.secrets["ANTHROPIC_API_KEY"]
 
 client = Anthropic()  # reads ANTHROPIC_API_KEY from env
-MODEL = "claude-sonnet-4-5"
+MODEL = "claude-sonnet-5"
 
 # ---------------------------------------------------------------------------
 # 1. MOCK DATA
